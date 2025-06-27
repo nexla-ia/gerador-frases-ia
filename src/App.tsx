@@ -29,7 +29,6 @@ const WEBHOOK_URL = 'https://n8n.nexladesenvolvimento.com.br/webhook/LinkTeste';
 function App() {
   const [selectedPlatform, setSelectedPlatform] = useState<string>('');
   const [topic, setTopic] = useState<string>('');
-  const [generatedCaption, setGeneratedCaption] = useState<string>('');
   const [editableCaption, setEditableCaption] = useState<string>('');
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [isCopying, setIsCopying] = useState<boolean>(false);
@@ -100,7 +99,6 @@ function App() {
       }
 
       const caption = await response.text();
-      setGeneratedCaption(caption);
       setEditableCaption(caption);
       setShowCaption(true);
       setSuccess('Legenda gerada com sucesso!');
