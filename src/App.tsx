@@ -24,7 +24,8 @@ const platforms: Platform[] = [
   { id: 'whatsapp', name: 'WhatsApp', icon: MessageCircle, color: 'text-green-500' },
 ];
 
-const WEBHOOK_URL = 'https://n8n.nexladesenvolvimento.com.br/webhook/LinkTeste';
+// Webhook utilizado para gerar as legendas
+const WEBHOOK_URL = 'https://n8n.nexladesenvolvimento.com.br/webhook/frase';
 
 function App() {
   const [selectedPlatform, setSelectedPlatform] = useState<string>('');
@@ -84,7 +85,7 @@ function App() {
         throw new Error('Não foi possível registrar o pedido');
       }
 
-      const response = await fetch('https://n8n.nexladesenvolvimento.com.br/webhook-test/LinkTeste', {
+      const response = await fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
