@@ -24,6 +24,8 @@ const platforms: Platform[] = [
   { id: 'whatsapp', name: 'WhatsApp', icon: MessageCircle, color: 'text-green-500' },
 ];
 
+const WEBHOOK_URL = 'https://n8n.nexladesenvolvimento.com.br/webhook/LinkTeste';
+
 function App() {
   const [selectedPlatform, setSelectedPlatform] = useState<string>('');
   const [topic, setTopic] = useState<string>('');
@@ -82,7 +84,7 @@ function App() {
         throw new Error('Não foi possível registrar o pedido');
       }
 
-      const response = await fetch('https://n8n.nexladesenvolvimento.com.br/webhook/LinkTeste', {
+      const response = await fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
